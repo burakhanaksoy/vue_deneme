@@ -8,3 +8,19 @@ $$ methods() is for functions that we can call anytime
 
 $$ computed is for listening to changes in our data so that it can update a variable in the instant that data is changed.. For example, when 
 the data of user (name, lastname) changes, user's fullname automatically changes with the help of computed hook....
+
+$$ Using props, we pass data from parent to child...
+
+$$ Using emit, we pass data from child to parent...
+
+Example for emit:
+methods: {
+    addNewTweet(event) {
+      event.preventDefault();
+      let text = document.getElementById("input-box").value;
+      this.$emit("new_tweet", text);
+    },
+
+$$ When you are styling your html content inside a component, you are advised to use <style scoped>, and this allows for us to change only the css in that component!
+    -->> This is very important because if you have the same class tag in different components, when you change one you change the other one as well (and you probably don't want it)..
+    -->> So, using <style scoped> helps us only work with current component css and not fiddle with other components' css...

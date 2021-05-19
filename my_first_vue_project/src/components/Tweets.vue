@@ -2,13 +2,13 @@
   <div id="user-tweet">
     <h2>Tweets</h2>
     <hr class="horizontal-ruler" />
+    <SubmitTweet @new_tweet="addTweet" />
     <div id="tweet" v-for="tweet in tweets" :key="tweet.id">
       <p class="each-tweet">{{ tweet.content }}</p>
       <button class="delete-tweet-btn" @click="deleteTweet">
         <i class="fas fa-trash"></i>
       </button>
     </div>
-    <SubmitTweet @new_tweet="addTweet" />
   </div>
 </template>
 
@@ -20,8 +20,8 @@ export default {
   data() {
     return {
       tweets: [
-        { content: "Hello world, this is my first tweet!" },
-        { content: "Today was rainy in Istanbul.. Bummer! ://" },
+        { id: 1, content: "Hello world, this is my first tweet!" },
+        { id: 2, content: "Today was rainy in Istanbul.. Bummer! ://" },
       ],
     };
   },
@@ -31,9 +31,13 @@ export default {
       childElement.parentElement.remove();
     },
     addTweet(text) {
-      let newTweet = { content: "PlaceHolder" };
-      newTweet.content = text;
-      this.tweets.push(newTweet);
+      if (text.length !== 0) {
+        this.tweets.unshift({
+          id: this.tweets.length + 1,
+          content: text,
+        });
+        document.getElementById("input-box").value = "";
+      }
     },
   },
 };
@@ -65,16 +69,20 @@ h2 {
   color: rgb(142, 81, 192);
   display: flex;
   align-items: center;
-  justify-content: center;
   margin: 1rem;
+  justify-content: space-between;
+  text-align: center;
 }
 .each-tweet {
-  margin-top: 1rem;
+  /* margin-top: 0rem; */
+  min-width: 15rem;
+  margin-bottom: 0.5rem;
 }
 .delete-tweet-btn {
   margin-left: 0.5rem;
   padding: 0.5rem;
   cursor: pointer;
+  margin-bottom: 0.5rem;
 }
 .fa-trash {
   pointer-events: none;

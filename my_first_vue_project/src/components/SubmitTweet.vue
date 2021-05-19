@@ -1,6 +1,7 @@
 <template>
   <form id="form">
-    Tweet<input id="input-box" type="text" />
+    <label>New Tweet! ({{ checkNewTweetLength }}/50) </label>
+    <input id="input-box" type="text" v-model="tweet.text" />
     <button id="tweet-btn" @click="addNewTweet">Tweet</button>
   </form>
 </template>
@@ -8,11 +9,24 @@
 <script>
 export default {
   name: "SubmitTweet",
+  data() {
+    return {
+      tweet: {
+        text: "Enter your tweet",
+      },
+    };
+  },
   methods: {
     addNewTweet(event) {
       event.preventDefault();
       let text = document.getElementById("input-box").value;
       this.$emit("new_tweet", text);
+      return text.length;
+    },
+  },
+  computed: {
+    checkNewTweetLength() {
+      return this.tweet.text.length;
     },
   },
 };

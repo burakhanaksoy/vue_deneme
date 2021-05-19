@@ -15,7 +15,7 @@ import Tweets from "./components/Tweets";
 
 export default {
   name: "App",
-  components: { UserProfile, Tweets, },
+  components: { UserProfile, Tweets },
 };
 </script>
 
