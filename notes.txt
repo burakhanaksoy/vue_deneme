@@ -1,0 +1,10 @@
+$$ watch hook function watches the changes in a data point and runs a function when it changes..
+
+$$ mounted() hook runs instantly when the application is mounted!
+
+$$ data() returns the data we are going to be using in our App.vue main component
+
+$$ methods() is for functions that we can call anytime
+
+$$ computed is for listening to changes in our data so that it can update a variable in the instant that data is changed.. For example, when 
+the data of user (name, lastname) changes, user's fullname automatically changes with the help of computed hook....
