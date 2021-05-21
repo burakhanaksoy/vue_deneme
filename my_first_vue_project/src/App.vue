@@ -1,4 +1,7 @@
 <template>
+  <nav>
+    <div class="nav-bar">Hello</div>
+  </nav>
   <div id="mainPage">
     <UserProfile />
     <Tweets />
@@ -44,5 +47,19 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100rem;
+}
+
+.nav-bar {
+  margin-bottom: 2rem;
+  background-color: rgb(53, 89, 121);
+  width: 90rem;
+  color: aliceblue;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 30px;
 }
 </style>
