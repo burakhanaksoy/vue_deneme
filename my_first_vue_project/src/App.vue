@@ -1,14 +1,14 @@
 <template>
   <nav>
-    <div class="nav-bar">Hello</div>
+    <div class="nav-bar">
+      <div class="text-field-site">Hello</div>
+      <div class="text-field-user">Burakhan</div>
+    </div>
   </nav>
   <div id="mainPage">
     <UserProfile />
     <Tweets />
   </div>
-  <!-- <div id="submit-btn">
-    <SubmitTweet />
-  </div> -->
 </template>
 
 <script>
@@ -31,7 +31,6 @@ export default {
   color: #2c3e50;
   font-size: 20px;
   justify-content: center;
-  /* float: center; */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -56,10 +55,18 @@ export default {
   color: aliceblue;
   height: 3rem;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-size: 30px;
+}
+.text-field-site {
+  display: flex;
+  margin-left: 2rem;
+}
+
+.text-field-user {
+  margin-right: 2rem;
 }
 </style>
