@@ -24,3 +24,26 @@ methods: {
 $$ When you are styling your html content inside a component, you are advised to use <style scoped>, and this allows for us to change only the css in that component!
     -->> This is very important because if you have the same class tag in different components, when you change one you change the other one as well (and you probably don't want it)..
     -->> So, using <style scoped> helps us only work with current component css and not fiddle with other components' css...
+
+$$ v-model is mostly used with inputs so that we have two-way binding. 
+{
+  When the user types in the input , value gets updated to match the value in input . 
+  When you update value , the input element's content updates to match value .
+}
+
+$$ v-for is used for iterating through a list. 
+Example - >
+{
+  <div class="todo-box" v-for="(todo, index) in todos" :key="todo.id">
+    <ul>
+      <li
+        @click="toggleDone(todo)"
+        class="todo-list-item"
+        :class="{ done: todo.done }"
+      >
+        {{ todo.content }}
+      </li>
+      <button @click="removeToDo(index)">Remove Todo</button>
+    </ul>
+  </div>
+}
